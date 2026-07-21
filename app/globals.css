@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Source+Serif+4:ital@0;1&family=Manrope:wght@400;700&family=Noto+Serif+Devanagari:wght@400;700&family=Tiro+Devanagari+Sanskrit&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #F7F1E5;
+  color: #211D19;
+}
+
+/* Buttons never fully rounded - see Style Guide "Buttons" section rationale */
+.btn-primary {
+  @apply bg-maroon-primary text-soft-white font-ui font-bold text-sm px-6 py-3 rounded transition-shadow;
+}
+.btn-accent {
+  @apply bg-gold-decorative text-maroon-deep font-ui font-bold text-sm px-6 py-3 rounded;
+}
+.btn-outline {
+  @apply border border-maroon-primary text-maroon-primary font-ui font-bold text-sm px-6 py-3 rounded;
+}
+
+/* Universal Card - one shape, every content type renders through this.
+   See VVG-Design-System-Framework.md section 2, "Molecules/Organisms". */
+.vvg-card {
+  @apply bg-soft-white border border-[#D9D0BF] rounded-card p-4 transition-transform;
+  box-shadow: 0 4px 10px rgba(107, 31, 42, 0.08);
+}
+.vvg-card:hover {
+  transform: translateY(-4px);
+}
