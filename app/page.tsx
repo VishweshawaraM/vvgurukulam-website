@@ -6,8 +6,9 @@
 // TWO ASSETS STILL NEEDED (placeholders below, swap in real files):
 //   1. /public/logo.png       - the temple/yajna motif logo, real file needed
 //   2. /public/hero-video.mp4 - the hero background video, real file or link needed
-// Until real assets land, the logo renders as a text mark and the hero
-// falls back to a static maroon-deep background - nothing is broken.
+// Until real assets land, the logo simply won't render (broken-image icon
+// suppressed via CSS) and the hero falls back to a static maroon-deep
+// background - nothing else breaks.
 
 const navItems = [
   'About',
@@ -37,12 +38,12 @@ export default function HomePage() {
     <main>
       <nav className="flex items-center justify-between px-8 py-4 bg-ivory-base border-b border-[#D9D0BF]">
         <div className="flex items-center gap-3">
-          {/* Real logo file goes here once uploaded: /logo.png */}
+          {/* Real logo file goes here once uploaded: /logo.png. Until then this
+              img simply fails to load quietly - no event handler needed. */}
           <img
             src="/logo.png"
             alt="Veda Vijnana Gurukulam emblem"
-            className="h-10 w-10 object-contain"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+            className="h-10 w-10 object-contain [&:not([src])]:hidden"
           />
           <span className="font-display font-semibold text-lg text-maroon-primary">VVG</span>
         </div>
@@ -74,7 +75,6 @@ export default function HomePage() {
             alt=""
             aria-hidden="true"
             className="h-16 w-16 object-contain mx-auto mb-6 opacity-90"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
           />
           <p className="font-devanagari text-gold-decorative text-sm mb-3">
             वेदविज्ञानगुरुकुलम्
